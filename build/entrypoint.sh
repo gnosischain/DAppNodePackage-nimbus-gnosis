@@ -1,6 +1,6 @@
 #!/bin/bash
 
-NETWORK="mainnet"
+NETWORK="gnosis"
 VALIDATOR_PORT=3500
 
 DATA_DIR="/home/user/nimbus-eth2/build/data"
@@ -10,30 +10,19 @@ TOKEN_FILE="${DATA_DIR}/auth-token"
 # Create validators dir
 mkdir -p ${VALIDATORS_DIR}
 
-case $_DAPPNODE_GLOBAL_EXECUTION_CLIENT_MAINNET in
-"geth.dnp.dappnode.eth")
-    HTTP_ENGINE="http://geth.dappnode:8551"
+case $_DAPPNODE_GLOBAL_EXECUTION_CLIENT_GNOSIS in
+"nethermind-xdai.dnp.dappnode.eth")
+    HTTP_ENGINE="http://nethermind-xdai.dappnode:8551"
     ;;
-"nethermind.public.dappnode.eth")
-    HTTP_ENGINE="http://nethermind.public.dappnode:8551"
-    ;;
-"erigon.dnp.dappnode.eth")
-    HTTP_ENGINE="http://erigon.dappnode:8551"
-    ;;
-"besu.public.dappnode.eth")
-    HTTP_ENGINE="http://besu.public.dappnode:8551"
+"erigon-gnosis.dnp.dappnode.eth")
+    HTTP_ENGINE="http://erigon-gnosis.dappnode:8551"
     ;;
 *)
-    echo "Unknown value for _DAPPNODE_GLOBAL_EXECUTION_CLIENT_MAINNET: $_DAPPNODE_GLOBAL_EXECUTION_CLIENT_MAINNET"
-    HTTP_ENGINE=$_DAPPNODE_GLOBAL_EXECUTION_CLIENT_MAINNET
+    echo "Unknown value for _DAPPNODE_GLOBAL_EXECUTION_CLIENT_GNOSIS: $_DAPPNODE_GLOBAL_EXECUTION_CLIENT_GNOSIS"
+    # TODO: this default value must be temporary and changed once there is more than 1 EC
+    HTTP_ENGINE="http://nethermind-xdai.dappnode:8551"
     ;;
 esac
-
-if [ -n "$_DAPPNODE_GLOBAL_MEVBOOST_MAINNET" ] && [ "$_DAPPNODE_GLOBAL_MEVBOOST_MAINNET" == "true" ]; then
-    echo "MEVBOOST is enabled"
-    MEVBOOST_URL="http://mev-boost.mev-boost.dappnode:18550"
-    EXTRA_OPTS="${EXTRA_OPTS} --payload-builder=true --payload-builder-url=${MEVBOOST_URL}"
-fi
 
 # Run checkpoint sync script if provided
 [[ -n $CHECKPOINT_SYNC_URL ]] &&

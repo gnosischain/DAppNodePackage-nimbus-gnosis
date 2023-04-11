@@ -1,11 +1,11 @@
 [ 
   {
       "labels": {
-          "package": "nimbus.dnp.dappnode.eth",
-          "service": "beacon-validator.nimbus.dappnode"
+          "package": "nimbus-gnosis.dnp.dappnode.eth",
+          "service": "beacon-validator.nimbus-gnosis.dappnode"
       },
       "targets": [
-          "beacon-validator.nimbus.dappnode:8008"
+          "beacon-validator.nimbus-gnosis.dappnode:8008"
       ]
   }
 ]
