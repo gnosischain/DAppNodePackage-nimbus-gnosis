@@ -1,7 +1,7 @@
 {
   "name": "nimbus-gnosis.dnp.dappnode.eth",
   "version": "0.1.0",
-  "upstreamVersion": "v23.8.0",
+  "upstreamVersion": "v23.11.0",
   "upstreamRepo": "status-im/nimbus-eth2",
   "upstreamArg": "UPSTREAM_VERSION",
   "architectures": ["linux/amd64"],
@@ -25,7 +25,7 @@
   "requirements": {
     "minimumDappnodeVersion": "0.2.60"
   },
-  "categories": ["Blockchain", "ETH2.0", "Gnosis"],
+  "categories": ["Blockchain"],
   "links": {
     "ui": "http://brain.web3signer-gnosis.dappnode",
     "homepage": "https://nimbus.team/",
