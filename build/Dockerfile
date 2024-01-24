@@ -1,6 +1,6 @@
 ARG UPSTREAM_VERSION
 
-FROM ghcr.io/gnosischain/gnosis-nimbus-eth2:v23.3.2${UPSTREAM_VERSION}
+FROM ghcr.io/gnosischain/gnosis-nimbus-eth2:${UPSTREAM_VERSION}
 
 USER root
 RUN apt update && apt install curl jq -y

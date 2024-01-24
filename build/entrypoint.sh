@@ -26,7 +26,7 @@ esac
 
 # Run checkpoint sync script if provided
 [[ -n $CHECKPOINT_SYNC_URL ]] &&
-    /home/user/nimbus-eth2/build/nimbus_beacon_node trustedNodeSync \
+    /home/user/nimbus_beacon_node trustedNodeSync \
         --network=${NETWORK} \
         --trusted-node-url=${CHECKPOINT_SYNC_URL} \
         --backfill=false \
@@ -34,7 +34,7 @@ esac
 
 #Apply graffiti limit to non-unicode characters
 oLang=$LANG oLcAll=$LC_ALL
-LANG=C LC_ALL=C 
+LANG=C LC_ALL=C
 graffitiString=${GRAFFITI:0:32}
 LANG=$oLang LC_ALL=$oLcAll
 
